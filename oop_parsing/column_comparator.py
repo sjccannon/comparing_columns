@@ -15,7 +15,6 @@ class Panels:
 	    print headers_list
 	    for panel_name in headers_list:
 	        self.gene_list_objects.append(Gene_list(panel_name))
-		print len(self.gene_list_objects)
 	    for line in in_file:
 	        for idx, gene_name in enumerate(line.strip('\n\r').split('\t')):
 		    #add code to reject null values
@@ -25,14 +24,14 @@ class Panels:
     def compare(self, first_gene_list, second_gene_list):
 	set_one = set(self.gene_list_objects[first_gene_list].genes)
 	set_two = set(self.gene_list_objects[second_gene_list].genes)
-	print len(set_one)
-	print len(set_two)
+	print "set one length %s" %len(set_one)
+	print "set two length %s" %len(set_two)
 	uniq_to_one = set_one - set_two
-	print len(uniq_to_one)
+	print "uniq to one length %s" %len(uniq_to_one)
 	uniq_to_two = set_two - set_one
-	print len(uniq_to_two)
+	print "uniq to two length %s" %len(uniq_to_two)
 	shared = set_one & set_two
-	print len(shared)
+	print "shared %s" %len(shared)
 	#make a dictionary to include names: 1,2,3
 	#key self.gene_list_objects[list_one]
 	self.comparison_output[self.gene_list_objects[0].name] = uniq_to_one
