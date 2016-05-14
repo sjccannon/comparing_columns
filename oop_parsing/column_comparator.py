@@ -1,14 +1,20 @@
 class Column_file:
-
+    #increases by 1 for every column in a file 	
     list_instances = 0
 
     #initialise the panel class
     def __init__(self, input_file):
+	#input file as instance object
 	self.input_file = input_file
+	#empty list to contain the column objects
 	self.column_objects = []
+	#empty dictionary to contain the output of comparison
 	self.comparison_output = {}
-
+    
+    #reads the input file and creates a Column_as_list object for each column returns 
+    #instance objects in an array
     def load(self):
+        opens the user specified input file
 	with open(self.input_file, "r") as f: 
 	    headers_list = f.readline().strip('\n\r').split()
 	    for header in headers_list:
