@@ -1,49 +1,12 @@
 READ_ME
 panel_comparator.py 
 
- #__init__
- - input file as instance object
- - 
+input - tab delimited text file with data in columns. Each column must have a header.
+output - python dictionary { 'column_a vs column_b' : [[unique to column_a], [unique to column_b], [shared in both columns]]}
 
- - reads in a tab delimited text file
- - creates a list as an instance variable of n Gene_list object instances where n is the number of columns in the text file,
-   initialising each column header to the Gene_list instance variable 'name'
- - 
-
-
-
-Input - tab delimited file whith data in columns. 
-output - python dictionary 
-	{ 'column_a vs column_b' : [[unique to column_a], [unique to column_b], [shared in both columns]]}
-
-
-
-Panels class
-    initialise function
-    the input file as an instance object
-    an empty list to be populated with Gene_list objects
-
-    load function
-    reads in the input_file into a list of gene_panel objects
-    iterates through each row and, splits by white space into colunms
-    iterates through each column, in each line using enuerate to index iterations
-    adds each iteration to the appropriate gene list object (in the gene list class)
-        using the  based on the gene_list_object (in the Gene_list class index
-
-      - sections removed -
-     1  add prefix to the filename, must be in cwd, could be usefule if need to store file path as an object
-        prefix = os.getcwd()
-        file = str(prefix) + "/" + str(self.input_file)
-     2  took out below list comprehension in favour of nested list
-        for row in(column.strip('\n\r').split('\t')) for column in gene_panels):
-
-Gene_list class
-    init
-    the name of the Gene_list
-    an empty list of genes to be appended by the add_gene function
-
-    add_gene function
-    appends gene_to the genes list
-
-'''
-
+Compares the contents of two columns in a text file.
+the example "__main__" statement used does the following:
+ - initialises column file and provides the path to the input file 'master_panels.txt'
+ - calls the function Column_file.load() to initialises a Column_as_list object for each column and appends it to the column_objects array 
+ - compares the contents of the user specified columns using Column_file.compare()
+ - prints the comparison to screen
