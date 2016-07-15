@@ -1,0 +1,6 @@
+Illumina_Trusight_one_clinical_exome	SureSelect_Focussed_exome_RDE	Sure_select_all_exon_v5	Sure_select_all_exon_v6
+A2M	A2M	A1BG	A1BG
+A4GALT	A2M-AS1	A1BG-AS1	A1BG-AS1
+A4GNT	A2ML1	A1CF	A1CF
+AAAS	A4GALT	A2M	A2M
+AADAC	A4GNT	A2M-AS1	A2M-AS1

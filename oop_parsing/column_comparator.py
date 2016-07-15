@@ -2,8 +2,8 @@ import os.path
 
 #---------------------------------------------------------------------------------------------------------
 class Column_file:
-    #input file as instance object
-    #empty array to be appended with n instance objecs of Column_as_list
+    #Input file modelled as instance object
+    #empty array to be appended with n instance objecs of class: Column_as_list
     #where n is the number of columns in the input data file
     #empty dictionary to contain the output of comparison between user specified columns
 
@@ -16,6 +16,7 @@ class Column_file:
 #---------------------------------------------------------------------------------------------------------
     #reads input file, creates a Column_as_list object for each column,
     #returns instance objects array
+
     #opens the user specified input file
     #reads first line of input file, removes newline characters and splits by whitespeace
     #iterates through column headers
@@ -58,9 +59,9 @@ class Column_file:
 
     def compare(self, first_column, second_column):
 	self.comparison_output = {}
-	print 'The following columns have been selected for comparison with each other:'
-	print '    ' + self.column_objects[first_column].name
-	print '    ' + self.column_objects[second_column].name
+#	print 'The following columns have been selected for comparison with each other:'
+#	print '    ' + self.column_objects[first_column].name
+#	print '    ' + self.column_objects[second_column].name
 	set_one = set(self.column_objects[first_column].column_items)
 	set_two = set(self.column_objects[second_column].column_items)
 	uniq_to_one = set_one - set_two
@@ -177,13 +178,11 @@ class Test_functions:
 if __name__ == "__main__":
     test_class = Test_functions("test_file.txt")
     comparison_test = test_class.comparison_test()
-    #panel_lists = Column_file("master_panels.txt")
-    #panel_lists.load_to_list()
-    #x = panel_lists.compare(1,3)
+    panel_lists = Column_file("master_panels.txt")
+    panel_lists.load_to_list()
+    x = panel_lists.compare(1,3)
     #x = panel_lists.compare(1,2)
-    #for key,value in x.iteritems():
-	#print 'comparison' + key
-	#print len(value[1])
-	#in_v6_not_rde = value[1]
+    for key,value in x.iteritems():
+	print 'comparison: ' + key
 
 
